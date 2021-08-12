@@ -1,0 +1,7 @@
+First execute the lex file by typing ml-lex boolean.lex in terminal.
+Then execute the yacc file by typing ml-yacc boolean.yacc in terminal.
+To run the code we just need to go into the sml environment (by using rlwrap sml command in the terminal)
+In the sml environment we need to write (use "loader.sml") without parentheses which will load all the files.
+ We can use now the parseString function which takes parameter the path of file need to be parsed.
+Say the name of file is f so we will write parseString "f" in the terminal if file is in the same directory and if file is in diffrent directory we will write the path in the inverted commas.
+

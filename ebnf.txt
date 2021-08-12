@@ -1,0 +1,52 @@
+(*With precedance*)
+
+program  := statement
+
+statement:= 	formula TERM|
+			formula TERM statement
+
+formula:= 	IF formula THEN formula ELSE formula|bool_exp
+
+bool_exp:= 	bool_exp1 IMPLIES bool_exp |bool_exp1
+
+bool_exp1:=	bool_exp1 AND bool_exp2 				|  
+			bool_exp1 OR bool_exp2 					|  
+			bool_exp1 XOR bool_exp2 				|  
+			bool_exp1 EQUALS bool_exp2 				|	    
+
+bool_exp2:= NOT bool_exp2 |LPAREN formula RPAREN|formula(*not necceasary*)|CONST|ID	
+LPAREN   :="("
+RPAREN   :=")"		
+CONST    := TRUE|FALSE
+TRUE     := "TRUE"
+FALSE    := "FALSE"
+ID       := [A-Za-z][A-Za-z]*
+
+
+
+
+(*Without any precedance*)
+
+program  := statement
+
+statement:= 	formula TERM|
+			formula TERM statement
+
+formula  :=	IF formula THEN formula ELSE formula| 
+			NOT formula   						|
+			formula AND formula 				|  
+			formula OR formula 					|  
+			formula XOR formula 				|  
+			formula EQUALS formula 				|	  
+			formula IMPLIES formula				|  
+			LPAREN formula RPAREN				|
+			CONST|ID
+LPAREN   :="("
+RPAREN   :=")"
+CONST    := TRUE|FALSE	
+TRUE     := "TRUE"
+FALSE    := "FALSE"
+ID       := [A-Za-z][A-Za-z]*
+
+
+
